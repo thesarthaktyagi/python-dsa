@@ -1,0 +1,54 @@
+# Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.
+
+# EXAMPLE :-
+
+# Input:
+# N = 5
+# arr[]= {0 2 1 2 0}
+# Output:
+# 0 0 1 2 2
+# Explanation:
+# 0s 1s and 2s are segregated
+# into ascending order.
+
+
+# Python program to sort an array with
+# 0, 1 and 2 in a single pass
+
+
+def sort012(a, arr_size):
+    lo = 0
+    hi = arr_size - 1
+    mid = 0
+    while mid <= hi:
+        if a[mid] == 0:
+            a[lo], a[mid] = a[mid], a[lo]
+            lo = lo + 1
+            mid = mid + 1
+            print("if a[mid] == 0")
+            print(a)
+        elif a[mid] == 1:
+            mid = mid + 1
+            print("a[mid] == 1")
+            print(a)
+        else:
+            a[mid], a[hi] = a[hi], a[mid]
+            hi = hi - 1
+            print("Else")
+            print(a)
+    return a
+
+# Function to print array
+
+
+def printArray(a):
+    for k in a:
+        print(k, end="")
+
+
+# Driver Program
+arr = [0, 1, 1, 0, 1, 2]
+arr_size = len(arr)
+arr = sort012(arr, arr_size)
+print("Array after segregation :\n",)
+printArray(arr)
